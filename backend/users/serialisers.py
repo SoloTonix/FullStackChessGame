@@ -3,4 +3,8 @@ from django.contrib.auth.models import User
 class UserSerialiser(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username']
+        fields = ['id', 'username', 'password']
+        extra_kwargs = {'password':{'write_only':True}, 'id':{'read_only':True}}
+        
+    def create(self, validated_data):
+        User.objects.create_user(**validated_data)
