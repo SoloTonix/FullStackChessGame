@@ -1,8 +1,16 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import GamePage from './pages/GamePage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
-    <h3 className="text-red-400">Tetsing</h3>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/game/:gameId" element={<GamePage />} />
+      </Routes>
+    </Router>
   );
 }
 

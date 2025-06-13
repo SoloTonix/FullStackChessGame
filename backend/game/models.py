@@ -7,7 +7,7 @@ class Game(models.Model):
     color_choices = [(white, 'White'), (black, 'Black')]
     
     white_player = models.ForeignKey(User, on_delete=models.CASCADE, related_name='white_games')
-    plack_player = models.ForeignKey(User, on_delete=models.CASCADE, related_name='black_games')
+    black_player = models.ForeignKey(User, on_delete=models.CASCADE, related_name='black_games')
     current_fen = models.CharField(max_length=100, default='rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')  # Starting position
     winner = models.CharField(choices=color_choices, max_length=1, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
