@@ -54,6 +54,9 @@ dist/
 /.next/
 /out/
 
+# Test
+/coverage
+
 # Cache
 /.cache
 
