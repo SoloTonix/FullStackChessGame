@@ -11,10 +11,10 @@ class GameConsumer(AsyncWebsocketConsumer):
         
         await self.accept()
         
-    async def recieve(self, text_data):
+    async def receive(self, text_data):
         data = json.loads(text_data)
-        move = data['moves']
-        await self.channel_layer.group_send(self.room_group_name,{'type':'game_move', 'moves':move})
+        move = data['move']
+        await self.channel_layer.group_send(self.room_group_name,{'type':'game_move', 'move':move})
         
     async def game_move(self, event):
         await self.send(text_data=json.dumps(event))
