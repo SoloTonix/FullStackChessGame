@@ -14,7 +14,7 @@ const HomePage = () => {
 
   const createNewGame = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/games/', {
+      const response = await fetch('http://localhost:8000/game/get-game/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

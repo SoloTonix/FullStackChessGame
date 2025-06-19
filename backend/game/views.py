@@ -25,7 +25,7 @@ class GameView(views.APIView):
 class GetGameView(views.APIView):
     def get(self, request, pk):
         game = get_object_or_404(Game, pk=pk)
-        serialiser = MoveSerialiser(game)
+        serialiser = GameSerialiser(game)
         return response.Response(serialiser.data, status=status.HTTP_200_OK)
     
 class GetGameMovesView(views.APIView):
